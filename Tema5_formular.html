@@ -1,0 +1,188 @@
+<html>
+	<head>
+		<title>Formular practica</title>
+		<link rel="stylesheet" href="css/design.css" />
+		<style>
+		.validare{
+			color: white;
+			font-size: 8px;
+			display: none;
+		}
+		</style>
+		<script type="text/javascript">
+			function validare_formular()
+			{
+				document.getElementById("numevalid").style.display="none";
+				document.getElementById("nume").style="border:1px solid black";
+				document.getElementById("prenumevalid").style.display="none";
+				document.getElementById("prenume").style="border:1px solid black";
+				document.getElementById("telefonvalid").style.display="none";
+				document.getElementById("telefon").style="border:1px solid black";
+				document.getElementById("emailvalid").style.display="none";
+				document.getElementById("email").style="border:1px solid black";
+				document.getElementById("anvalid").style.display="none";
+				document.getElementById("an").style="border:1px solid black";
+				document.getElementById("facultatevalida").style.display="none";
+				document.getElementById("facultate").style="border:1px solid black";
+				document.getElementById("genvalid").style.display="none";
+				document.getElementById("temavalida").style.display="none";
+				document.getElementById("tema").style="border:1px solid black";
+				document.getElementById("firmavalida").style.display="none";
+				document.getElementById("firma").style="border:1px solid black";
+
+				var nume=document.getElementById("nume").value;
+				var prenume=document.getElementById("prenume").value;
+				var telefon=document.getElementById("telefon").value;
+				var mail=document.getElementById("email").value;
+				var an=document.getElementById("an").value;
+				var facultate=document.getElementById("facultate").value;
+				var tema=document.getElementById("tema").value;
+				var firma=document.getElementById("firma").value;
+
+				var formvalid=true;
+				
+				if (nume.length<3) {
+					formvalid=false;
+					document.getElementById("numevalid").style.display="block";
+					document.getElementById("nume").style="border:1px solid red";
+				}
+				
+				if (prenume.length<3) {
+					formvalid=false;
+					document.getElementById("prenumevalid").style.display="block";
+					document.getElementById("prenume").style="border:1px solid red";
+				}
+				
+				if(telefon.length!=10) {
+					formvalid=false;
+					document.getElementById("telefonvalid").style.display="block";
+					document.getElementById("telefon").style="border:1px solid red";
+				}
+				
+				var email = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+				if (!mail.match(email)) { 
+					formvalid=false;
+					document.getElementById("emailvalid").style.display="block";
+					document.getElementById("email").style="border:1px solid red";
+				}
+				
+				if(an=="nul") {
+					formvalid=false;
+					document.getElementById("anvalid").style.display="block";
+					document.getElementById("an").style="border:1px solid red";
+				}
+				
+				if(facultate=="nul") {
+					formvalid=false;
+					document.getElementById("facultatevalida").style.display="block";
+					document.getElementById("facultate").style="border:1px solid red";
+				}
+				
+				if (!document.getElementById("tipul1").checked && !document.getElementById("tipul2").checked)
+				{
+					formvalid=false;
+					document.getElementById("genvalid").style.display="block";
+				}
+				
+				if(tema.length==0)
+				{
+					formvalid=false;
+					document.getElementById("temavalida").style.display="block";
+					document.getElementById("tema").style="border:1px solid red";
+				}
+				
+				if(firma.length==0)
+				{
+					formvalid=false;
+					document.getElementById("firmavalida").style.display="block";
+					document.getElementById("firma").style="border:1px solid red";
+				}
+
+				if (!formvalid) alert("Va rugam sa completati corect toate campurile!");
+				
+				return formvalid;
+			}
+		</script>	
+	</head>
+	<body>
+		<h2>Formular finalizare practica</h2>
+		<form method="post" action="Tema5_mesaj.php" onsubmit="return validare_formular()">
+			<table>
+				<tr>
+					<td id="textboldat">Nume</td>
+					<td><input type="text" name="nume" id="nume" /><span class="validare" id="numevalid">Nume invalid!</a></td>
+				</tr>
+				<tr>
+					<td id="textboldat">Prenume</td>
+					<td><input type="text" name="prenume" id="prenume" /><span class="validare" id="prenumevalid">Prenume invalid!</a></td>
+				</tr>
+				<tr>
+					<td id="textboldat">Telefon</td>
+					<td><input type="text" name="telefon" id="telefon" /><span class="validare" id="telefonvalid">Nr.telefon invalid!</a></td>
+				</tr>
+				<tr>
+					<td id="textboldat">Email</td>
+					<td><input type="text" name="email" id="email" /><span class="validare" id="emailvalid">Email invalid!</a></td>
+				</tr>
+				<tr>
+					<td id="textboldat">An de studiu</td>
+					<td>
+						<select name="an" class="literealbastre" id="an">
+							<option value="nul"></option>
+							<option value="Anul 1">Anul 1</option>
+							<option value="Anul 2">Anul 2</option>
+							<option value="Anul 3">Anul 3</option>
+							<option value="Anul 4">Anul 4</option>
+						</select>
+						<span class="validare" id="anvalid">Nu ati ales anul!</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="textboldat">Facultate</td>
+					<td>
+						<select name="facultate" class="literealbastre" id="facultate">
+							<option value="nul"></option>
+							<option value="Arhitectura si Urbanism">Arhitectura si Urbanism</option>
+							<option value="Automatica si Calculatoare">Automatica si Calculatoare</option>
+							<option value="Chimie Industriala si Ingineria Mediului">Chimie Industriala si Ingineria Mediului</option>
+							<option value="Constructii">Constructii</option>
+							<option value="Electronica, Telecomunicatii si Tehnologii Informationale">Electronica, Telecomunicatii si Tehnologii Informationale</option>
+							<option value="Electrotehnica si Electroenergetica">Electrotehnica si Electroenergetica</option>
+							<option value="Inginerie din Hunedoara">Inginerie din Hunedoara</option>
+							<option value="Management in Productie si Transporturi">Management in Productie si Transporturi</option>
+							<option value="Mecanica">Mecanica</option>
+							<option value="Stiinte ale Comunicarii">Stiinte ale Comunicarii</option>
+						</select>
+						<span class="validare" id="facultatevalida">Nu ati ales facultatea!</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="textboldat">Practica online</td>
+					<td><input type="checkbox" value="1" name="practica" /></td>
+				</tr>
+				<tr>
+					<td id="textboldat">Gen</td>
+					<td>
+						<input type="radio" value="masculin" name="gen" id="tipul1" /> Masculin<br/>
+						<input type="radio" value="feminin" name="gen" id="tipul2" /> Feminin
+						<span class="validare" id="genvalid">Gen neselectat!</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="textboldat">Tema practica</td>
+					<td>
+						<textarea name="tema" rows="6" cols="40" class="literealbastre" id="tema"></textarea>
+						<span class="validare" id="temavalida">Tema necompletata!</a>
+					</td>
+				</tr>
+				<tr>
+					<td id="textboldat">Firma practica</td>
+					<td><input type="text" name="firma" id="firma" /><span class="validare" id="firmavalida">Firma necompletata!</a></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Salveaza" id="butonsalvare" /></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

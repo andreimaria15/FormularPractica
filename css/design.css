@@ -1,0 +1,26 @@
+body{
+	background-color:blue;
+	color:white;
+	font-family:Verdana;
+	font-size:17px;
+}
+h2{
+	text-align:center;
+}
+#textboldat{
+	font-weight:bold;
+}
+td{
+	padding:0px 50px 5px 5px;
+}
+.literealbastre{
+	font-size:13px;
+	color:blue;
+	font-family:'Brush Script MT', cursive;
+}
+#butonsalvare{
+	border-radius:15px;
+	background-color:green;
+	color:white;
+	padding:15px;
+}
